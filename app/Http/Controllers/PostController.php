@@ -18,4 +18,15 @@ class PostController extends Controller
     {
         return view('posts.create');
     }
+
+    public function store(Request $request)
+    {
+        Post::factory()->create([
+           'user_id' => $request->get('user_id'),
+           'title' => $request->get('title'),
+           'description' => $request->get('description')
+        ]);
+
+        return view('posts.create');
+    }
 }
