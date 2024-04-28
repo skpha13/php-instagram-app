@@ -27,6 +27,30 @@ class PostController extends Controller
            'description' => $request->get('description')
         ]);
 
-        return view('posts.create');
+        return redirect('posts.create');
+    }
+
+    public function edit(Post $post)
+    {
+        return view('posts.edit', compact('post'));
+    }
+
+    public function update(Request $request, Post $post)
+    {
+        $newTitle = $request->filled('title') ? $request->get('title') : $post->title;
+        $newDescription = $request->filled('description') ? $request->get('description') : $post->description;
+
+        $post->update([
+            'title' => $newTitle,
+            'description' => $newDescription
+        ]);
+
+        return redirect('/posts');
+    }
+
+    public function destroy(Post $post)
+    {
+        $post->delete();
+        return redirect('/posts');
     }
 }

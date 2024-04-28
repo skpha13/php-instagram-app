@@ -22,7 +22,7 @@
 
     <div class="flex flex-row flex-wrap">
         @forelse($posts as $post)
-            <a href="#" class="block max-w-sm p-6 bg-white border border-neutral-200 rounded-lg shadow hover:bg-neutral-100 dark:bg-neutral-800 dark:border-neutral-700 dark:hover:bg-neutral-700 m-2">
+            <a href="{{ route('posts.edit', $post) }}" class="block max-w-sm p-6 bg-white border border-neutral-200 rounded-lg shadow hover:bg-neutral-100 dark:bg-neutral-800 dark:border-neutral-700 dark:hover:bg-neutral-700 m-2">
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $post->title }}</h5>
                 <p class="font-normal text-gray-700 dark:text-gray-400">{{ $post->description }}</p>
             </a>
