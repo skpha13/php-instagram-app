@@ -27,7 +27,7 @@ class PostController extends Controller
            'description' => $request->get('description')
         ]);
 
-        return redirect('posts.create');
+        return redirect('/posts');
     }
 
     public function edit(Post $post)
